@@ -592,7 +592,14 @@
     #rg-world-cup-watch-parties .rgw-exporting .rgw-side-by-side { grid-template-columns:minmax(430px,.9fr) minmax(0,1.1fr)!important;gap:14px!important; }
     #rg-world-cup-watch-parties .rgw-exporting .rgw-side-panel { transform:none!important;box-shadow:none!important; }
     #rg-world-cup-watch-parties .rgw-exporting .rgw-side-by-side .rgw-bar-chart { min-width:0!important; }
-    #rg-world-cup-watch-parties .rgw-exporting #rgw-top-table { min-width:820px!important; }
+    #rg-world-cup-watch-parties .rgw-exporting #rgw-top-table { width:100%!important;min-width:0!important;table-layout:fixed!important; }
+    #rg-world-cup-watch-parties .rgw-exporting #rgw-top-table th { padding:15px 10px!important;font-size:14px!important;line-height:1.12!important;letter-spacing:.06em!important; }
+    #rg-world-cup-watch-parties .rgw-exporting #rgw-top-table td { padding:13px 10px!important;font-size:15.5px!important;line-height:1.25!important; }
+    #rg-world-cup-watch-parties .rgw-exporting #rgw-top-table .rgw-city-cell strong { font-size:19px!important;margin-bottom:3px!important; }
+    #rg-world-cup-watch-parties .rgw-exporting #rgw-top-table .rgw-rank-cell { font-size:22px!important; }
+    #rg-world-cup-watch-parties .rgw-exporting #rgw-top-table .rgw-score-cell strong { font-size:18px!important; }
+    #rg-world-cup-watch-parties .rgw-exporting #rgw-top-table .rgw-score-mini { font-size:15.5px!important;font-weight:800!important; }
+    #rg-world-cup-watch-parties .rgw-exporting .rgw-table-scroll { overflow:visible!important; }
 
 
     #rg-world-cup-watch-parties .rgw-tab-shell {
@@ -689,51 +696,50 @@
       #rg-world-cup-watch-parties .rgw-pill-list { grid-template-columns:repeat(2,minmax(0,1fr)); }
       #rg-world-cup-watch-parties .rgw-method-grid { grid-template-columns:1fr; }
     }
+
     @media (max-width:720px) {
       #rg-world-cup-watch-parties .rgw-hero { padding:20px 16px 22px; }
       #rg-world-cup-watch-parties .rgw-hero h2 { font-size:clamp(32px,12vw,48px); }
-      #rg-world-cup-watch-parties .rgw-section,
-      @media (max-width:480px){
-      .rgw-metric-popover {
-        width:calc(100vw - 24px);
-      }
-      .rgw-metric-popover .rgw-pop-head {
-      display:block;
-      padding:15px 18px 14px;
-      background:radial-gradient(circle at 92% 8%,rgba(48,167,255,.24),transparent 34%),linear-gradient(135deg,#071824 0%,#0b2535 58%,#064f8f 100%);
-      color:#fff;
-    }
-      .rgw-metric-popover .rgw-pop-icon { display:none; }
-      .rgw-metric-popover .rgw-pop-icon svg { display:none; }
-      .rgw-metric-popover .rgw-pop-head strong {
-      display:block;
-      margin:0 0 6px;
-      font-family:Impact,'Arial Narrow',Arial,sans-serif;
-      font-size:clamp(20px,5vw,25px);
-      line-height:1.02;
-      letter-spacing:.045em;
-      text-transform:uppercase;
-      overflow-wrap:normal;
-      word-break:normal;
-    }
-      .rgw-metric-popover .rgw-pop-head span {
-      display:block;
-      color:#d9f1ff;
-      font-size:13px;
-      line-height:1.35;
-      font-weight:800;
-      overflow-wrap:normal;
-      word-break:normal;
-    }
-    }
-    #rg-world-cup-watch-parties .rgw-key-findings { padding:18px 16px; }
+      #rg-world-cup-watch-parties .rgw-key-findings { padding:18px 16px; }
       #rg-world-cup-watch-parties .rgw-section > h2,
       #rg-world-cup-watch-parties .rgw-key-findings > h2 { margin:-18px -16px 14px;padding:16px 16px 15px; }
       #rg-world-cup-watch-parties .rgw-intro-copy { padding:0 16px; }
       #rg-world-cup-watch-parties .rgw-dfs-cta-inner { padding:16px; }
       #rg-world-cup-watch-parties .rgw-kf-card { grid-template-columns:40px 1fr;align-items:flex-start; }
-      #rg-world-cup-watch-parties .rgw-visual-head { padding:92px 16px 18px 16px; }
-      #rg-world-cup-watch-parties .rgw-visual-logo { left:16px;right:auto;top:18px;width:150px; }
+
+      /* Keep the download/image header aligned like desktop on mobile instead of stacking the logo above the title. */
+      #rg-world-cup-watch-parties .rgw-visual-head {
+        padding:18px 134px 18px 16px;
+        min-height:116px;
+      }
+      #rg-world-cup-watch-parties .rgw-visual-logo {
+        position:absolute;
+        left:auto;
+        right:16px;
+        top:18px;
+        width:108px;
+        padding:6px 7px;
+      }
+      #rg-world-cup-watch-parties .rgw-visual-head .rgw-kicker {
+        margin:0 0 8px;
+        padding:6px 9px;
+        font-size:10px;
+        letter-spacing:.10em;
+        white-space:nowrap;
+      }
+      #rg-world-cup-watch-parties .rgw-visual-head h2 {
+        max-width:none;
+        font-size:clamp(24px,8.6vw,38px);
+        line-height:1;
+        letter-spacing:.008em;
+      }
+      #rg-world-cup-watch-parties .rgw-visual-head p {
+        max-width:none;
+        margin-top:8px;
+        font-size:12.8px;
+        line-height:1.35;
+      }
+
       #rg-world-cup-watch-parties .rgw-visual-body { padding:14px; }
       #rg-world-cup-watch-parties .rgw-bar-chart { min-width:620px; }
       #rg-world-cup-watch-parties .rgw-bar-row { grid-template-columns:34px 176px minmax(180px,1fr) 64px; }
@@ -745,6 +751,96 @@
       #rg-world-cup-watch-parties .rgw-focus-stat span { margin:0;font-size:11px; }
       #rg-world-cup-watch-parties .rgw-focus-stat strong { font-size:26px; }
     }
+
+    @media (max-width:480px) {
+      #rg-world-cup-watch-parties .rgw-metric-popover { width:calc(100vw - 24px); }
+      #rg-world-cup-watch-parties .rgw-metric-popover .rgw-pop-head {
+        display:block;
+        padding:15px 18px 14px;
+        background:radial-gradient(circle at 92% 8%,rgba(48,167,255,.24),transparent 34%),linear-gradient(135deg,#071824 0%,#0b2535 58%,#064f8f 100%);
+        color:#fff;
+      }
+      #rg-world-cup-watch-parties .rgw-metric-popover .rgw-pop-icon,
+      #rg-world-cup-watch-parties .rgw-metric-popover .rgw-pop-icon svg { display:none; }
+      #rg-world-cup-watch-parties .rgw-metric-popover .rgw-pop-head strong {
+        display:block;
+        margin:0 0 6px;
+        font-family:Impact,'Arial Narrow',Arial,sans-serif;
+        font-size:clamp(20px,5vw,25px);
+        line-height:1.02;
+        letter-spacing:.045em;
+        text-transform:uppercase;
+        overflow-wrap:normal;
+        word-break:normal;
+      }
+      #rg-world-cup-watch-parties .rgw-metric-popover .rgw-pop-head span {
+        display:block;
+        color:#d9f1ff;
+        font-size:13px;
+        line-height:1.35;
+        font-weight:800;
+        overflow-wrap:normal;
+        word-break:normal;
+      }
+    }
+
+    @media (max-width:420px) {
+      #rg-world-cup-watch-parties .rgw-visual-head {
+        padding:16px 116px 16px 14px;
+        min-height:112px;
+      }
+      #rg-world-cup-watch-parties .rgw-visual-logo {
+        right:14px;
+        top:16px;
+        width:94px;
+        padding:5px 6px;
+      }
+      #rg-world-cup-watch-parties .rgw-visual-head .rgw-kicker {
+        font-size:9px;
+        padding:5px 8px;
+      }
+      #rg-world-cup-watch-parties .rgw-visual-head h2 {
+        font-size:clamp(22px,7.2vw,30px);
+        line-height:1.02;
+      }
+      #rg-world-cup-watch-parties .rgw-visual-head p {
+        font-size:12px;
+        line-height:1.3;
+      }
+    }
+
+    /* Force a desktop-style header inside generated download images, even when the export is triggered from a phone. */
+    #rg-world-cup-watch-parties .rgw-exporting .rgw-visual-head {
+      padding:32px 310px 34px 42px!important;
+      min-height:245px!important;
+    }
+    #rg-world-cup-watch-parties .rgw-exporting .rgw-visual-logo {
+      left:auto!important;
+      right:42px!important;
+      top:34px!important;
+      width:230px!important;
+      padding:10px 14px!important;
+    }
+    #rg-world-cup-watch-parties .rgw-exporting .rgw-visual-head .rgw-kicker {
+      margin:0 0 22px!important;
+      padding:12px 18px!important;
+      font-size:18px!important;
+      letter-spacing:.12em!important;
+      white-space:nowrap!important;
+    }
+    #rg-world-cup-watch-parties .rgw-exporting .rgw-visual-head h2 {
+      max-width:760px!important;
+      font-size:58px!important;
+      line-height:1.02!important;
+      letter-spacing:.012em!important;
+    }
+    #rg-world-cup-watch-parties .rgw-exporting .rgw-visual-head p {
+      max-width:760px!important;
+      margin-top:18px!important;
+      font-size:26px!important;
+      line-height:1.35!important;
+    }
+
   </style>
 <div class="rgw-wrap">
 <div class="rgw-hero-image-wrap"><img src="https://s3.amazonaws.com/rical-misc/3ERWF0G.jpg" alt="Fans celebrate a U.S. goal at Kent Ale House in New York" loading="eager"/><div class="rgw-hero-caption">Fans celebrate a U.S. goal at Kent Ale House in New York. (AP Photo/Angelina Katsanis)</div></div>
