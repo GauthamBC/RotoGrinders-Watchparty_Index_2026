@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -251,7 +250,7 @@
     .rgw-metric-popover {
       position:fixed;
       z-index:2147483647;
-      width:min(370px,calc(100vw - 28px));
+      width:min(390px,calc(100vw - 28px));
       background:#fff;
       color:#17212b;
       border:1px solid rgba(11,120,200,.32);
@@ -263,100 +262,102 @@
       pointer-events:none;
       overflow:hidden;
       transition:opacity 160ms ease,transform 160ms ease;
+      will-change:top,left,opacity,transform;
+      box-sizing:border-box;
     }
+    .rgw-metric-popover * { box-sizing:border-box; }
+    .rgw-metric-popover[data-rgw-placement="top"] { transform:translateY(-8px); }
+    .rgw-metric-popover[data-rgw-placement="bottom"] { transform:translateY(8px); }
     .rgw-metric-popover.is-showing { opacity:1;transform:translateY(0); }
     .rgw-metric-popover .rgw-pop-head {
-      display:grid;
-      grid-template-columns:42px minmax(0,1fr);
-      gap:11px;
-      align-items:center;
-      padding:13px 14px 12px;
-      background:radial-gradient(circle at 92% 8%,rgba(48,167,255,.26),transparent 34%),linear-gradient(135deg,#071824 0%,#0b2535 58%,#064f8f 100%);
+      display:block;
+      padding:15px 18px 14px;
+      background:radial-gradient(circle at 92% 8%,rgba(48,167,255,.24),transparent 34%),linear-gradient(135deg,#071824 0%,#0b2535 58%,#064f8f 100%);
       color:#fff;
     }
-    .rgw-metric-popover .rgw-pop-icon {
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      width:38px;
-      height:38px;
-      background:#0b78c8;
-      border:1px solid rgba(255,255,255,.18);
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
-    }
-    .rgw-metric-popover .rgw-pop-icon svg {
-      width:22px;
-      height:22px;
-      display:block;
-      stroke:currentColor;
-      fill:none;
-      stroke-width:2;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-    }
+    .rgw-metric-popover .rgw-pop-icon { display:none; }
+    .rgw-metric-popover .rgw-pop-icon svg { display:none; }
     .rgw-metric-popover .rgw-pop-head strong {
       display:block;
-      margin:0 0 3px;
+      margin:0 0 6px;
       font-family:Impact,'Arial Narrow',Arial,sans-serif;
-      font-size:19px;
-      line-height:1;
+      font-size:clamp(20px,5vw,25px);
+      line-height:1.02;
       letter-spacing:.045em;
       text-transform:uppercase;
+      overflow-wrap:normal;
+      word-break:normal;
     }
     .rgw-metric-popover .rgw-pop-head span {
       display:block;
-      color:#cfeeff;
-      font-size:12px;
-      line-height:1.25;
-      font-weight:700;
+      color:#d9f1ff;
+      font-size:13px;
+      line-height:1.35;
+      font-weight:800;
+      overflow-wrap:normal;
+      word-break:normal;
     }
     .rgw-metric-popover .rgw-pop-body { padding:13px 14px 14px;background:#fff; }
     .rgw-metric-popover .rgw-pop-body p { margin:0 0 10px;color:#374151;font-size:13px;line-height:1.45; }
     .rgw-metric-popover .rgw-pop-list { display:grid;gap:7px;margin:0 0 11px;padding:0;list-style:none; }
     .rgw-metric-popover .rgw-pop-list li {
-      display:grid;
-      grid-template-columns:18px minmax(0,1fr);
-      gap:7px;
-      align-items:start;
+      display:block;
       margin:0;
-      padding:7px 8px;
+      padding:9px 11px 9px 13px;
       background:#f3f9ff;
       border:1px solid #d7ebfb;
+      border-left:4px solid #0b78c8;
       color:#24313b;
-      font-size:12.5px;
-      line-height:1.3;
+      font-size:13px;
+      line-height:1.35;
     }
     .rgw-metric-popover .rgw-pop-list li:before {
-      content:"";
-      width:8px;
-      height:8px;
-      margin-top:4px;
-      background:#0b78c8;
-      box-shadow:0 0 0 4px rgba(11,120,200,.13);
+      content:none;
+      display:none;
     }
     .rgw-metric-popover .rgw-pop-note {
-      display:flex;
-      align-items:center;
-      gap:7px;
-      padding:8px 9px;
+      display:block;
+      padding:9px 11px;
       background:#071824;
       color:#eaf6ff;
-      font-size:12px;
+      font-size:12.5px;
       line-height:1.35;
       font-weight:800;
+      border-left:4px solid #0b78c8;
     }
-    .rgw-metric-popover .rgw-pop-note span {
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:22px;
-      height:22px;
-      flex:0 0 22px;
-      background:#0b78c8;
+    .rgw-metric-popover .rgw-pop-note span { display:none; }
+    @media (max-width:480px){
+      .rgw-metric-popover {
+        width:calc(100vw - 24px);
+      }
+      .rgw-metric-popover .rgw-pop-head {
+      display:block;
+      padding:15px 18px 14px;
+      background:radial-gradient(circle at 92% 8%,rgba(48,167,255,.24),transparent 34%),linear-gradient(135deg,#071824 0%,#0b2535 58%,#064f8f 100%);
       color:#fff;
+    }
+      .rgw-metric-popover .rgw-pop-icon { display:none; }
+      .rgw-metric-popover .rgw-pop-icon svg { display:none; }
+      .rgw-metric-popover .rgw-pop-head strong {
+      display:block;
+      margin:0 0 6px;
       font-family:Impact,'Arial Narrow',Arial,sans-serif;
-      font-size:12px;
-      line-height:1;
+      font-size:clamp(20px,5vw,25px);
+      line-height:1.02;
+      letter-spacing:.045em;
+      text-transform:uppercase;
+      overflow-wrap:normal;
+      word-break:normal;
+    }
+      .rgw-metric-popover .rgw-pop-head span {
+      display:block;
+      color:#d9f1ff;
+      font-size:13px;
+      line-height:1.35;
+      font-weight:800;
+      overflow-wrap:normal;
+      word-break:normal;
+    }
     }
     #rg-world-cup-watch-parties .rgw-key-findings {
       margin:0 0 18px;padding:20px 22px;background:#fff;border:1px solid var(--rgw-line);border-left:6px solid var(--rgw-primary);box-shadow:0 10px 24px rgba(7,24,36,.06);
@@ -692,7 +693,40 @@
       #rg-world-cup-watch-parties .rgw-hero { padding:20px 16px 22px; }
       #rg-world-cup-watch-parties .rgw-hero h2 { font-size:clamp(32px,12vw,48px); }
       #rg-world-cup-watch-parties .rgw-section,
-      #rg-world-cup-watch-parties .rgw-key-findings { padding:18px 16px; }
+      @media (max-width:480px){
+      .rgw-metric-popover {
+        width:calc(100vw - 24px);
+      }
+      .rgw-metric-popover .rgw-pop-head {
+      display:block;
+      padding:15px 18px 14px;
+      background:radial-gradient(circle at 92% 8%,rgba(48,167,255,.24),transparent 34%),linear-gradient(135deg,#071824 0%,#0b2535 58%,#064f8f 100%);
+      color:#fff;
+    }
+      .rgw-metric-popover .rgw-pop-icon { display:none; }
+      .rgw-metric-popover .rgw-pop-icon svg { display:none; }
+      .rgw-metric-popover .rgw-pop-head strong {
+      display:block;
+      margin:0 0 6px;
+      font-family:Impact,'Arial Narrow',Arial,sans-serif;
+      font-size:clamp(20px,5vw,25px);
+      line-height:1.02;
+      letter-spacing:.045em;
+      text-transform:uppercase;
+      overflow-wrap:normal;
+      word-break:normal;
+    }
+      .rgw-metric-popover .rgw-pop-head span {
+      display:block;
+      color:#d9f1ff;
+      font-size:13px;
+      line-height:1.35;
+      font-weight:800;
+      overflow-wrap:normal;
+      word-break:normal;
+    }
+    }
+    #rg-world-cup-watch-parties .rgw-key-findings { padding:18px 16px; }
       #rg-world-cup-watch-parties .rgw-section > h2,
       #rg-world-cup-watch-parties .rgw-key-findings > h2 { margin:-18px -16px 14px;padding:16px 16px 15px; }
       #rg-world-cup-watch-parties .rgw-intro-copy { padding:0 16px; }
@@ -4656,29 +4690,56 @@
 
       function hideMetricTip(){
         rgwMetricTip.classList.remove('is-showing');
+        rgwMetricTip.removeAttribute('data-rgw-placement');
         rgwMetricTip.innerHTML = '';
         rgwMetricTip.style.left = '-9999px';
         rgwMetricTip.style.top = '-9999px';
       }
 
       function metricMarkup(data){
-        return '<div class="rgw-pop-head"><span class="rgw-pop-icon">' + data.icon + '</span><div><strong>' + data.title + '</strong><span>' + data.subtitle + '</span></div></div>' +
+        return '<div class="rgw-pop-head"><strong>' + data.title + '</strong><span>' + data.subtitle + '</span></div>' +
           '<div class="rgw-pop-body"><p>' + data.summary + '</p><ul class="rgw-pop-list">' +
           data.items.map(function(item){ return '<li>' + item + '</li>'; }).join('') +
-          '</ul><div class="rgw-pop-note"><span>100</span>Scored out of 100. Higher means better.</div></div>';
+          '</ul><div class="rgw-pop-note">Scored out of 100. Higher means better.</div></div>';
       }
 
       function positionMetricTip(trigger){
         var rect = trigger.getBoundingClientRect();
+        var safeX = 12;
+        var safeTop = 8;
+        var safeBottom = 10;
+        var gap = 12;
+
         rgwMetricTip.style.left = '0px';
         rgwMetricTip.style.top = '0px';
         rgwMetricTip.classList.add('is-showing');
+
         var tipRect = rgwMetricTip.getBoundingClientRect();
+        var spaceAbove = rect.top - safeTop;
+        var spaceBelow = window.innerHeight - rect.bottom - safeBottom;
+        var canShowAbove = spaceAbove >= (tipRect.height + gap);
+        var canShowBelow = spaceBelow >= (tipRect.height + gap);
+
+        var preferAbove = false;
+        if(!canShowBelow && canShowAbove){
+          preferAbove = true;
+        } else if(canShowAbove && canShowBelow){
+          preferAbove = (rect.top > Math.min(260, window.innerHeight * 0.38)) || (spaceAbove > spaceBelow + 80);
+        } else if(spaceAbove > spaceBelow){
+          preferAbove = true;
+        }
+
+        var placement = preferAbove ? 'top' : 'bottom';
         var left = rect.left + (rect.width / 2) - (tipRect.width / 2);
-        left = Math.max(12, Math.min(left, window.innerWidth - tipRect.width - 12));
-        var top = rect.bottom + 11;
-        if(top + tipRect.height > window.innerHeight - 10) top = rect.top - tipRect.height - 11;
-        if(top < 8) top = 8;
+        left = Math.max(safeX, Math.min(left, window.innerWidth - tipRect.width - safeX));
+
+        var top = preferAbove ? rect.top - tipRect.height - gap : rect.bottom + gap;
+        if(top < safeTop) top = safeTop;
+        if(top + tipRect.height > window.innerHeight - safeBottom){
+          top = Math.max(safeTop, window.innerHeight - tipRect.height - safeBottom);
+        }
+
+        rgwMetricTip.setAttribute('data-rgw-placement', placement);
         rgwMetricTip.style.left = left + 'px';
         rgwMetricTip.style.top = top + 'px';
       }
